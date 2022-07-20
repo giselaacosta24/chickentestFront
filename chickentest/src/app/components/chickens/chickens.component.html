@@ -3,8 +3,8 @@
     <div class="card bg-light mb-3">
       <div class="card-header">Chickentest</div>
       <div class="card-body">
-          <button class="btn btn-primary my-2" routerLink="/principal">ir a principal</button>
-          <div class="alert alert-info" *ngIf="chickens?.length==0">
+        <button class="btn btn-primary my-2" routerLink="/chickens/form">Crear</button>
+        <div class="alert alert-info" *ngIf="chickens?.length==0">
               No hay pollos en el sistema.
           </div>
           <table class="table table-hover table-striped" *ngIf="chickens?.length>0">
@@ -22,9 +22,9 @@
                       <td>{{chicken.price}}</td>
                       <td> {{chicken.amountDays}}</td>
                       <td><button class="btn btn-secondary btn-sm" 
-                         >
-                          editar
-                      </button></td>
+                        [routerLink]="['/chickens/form', chicken.id]">
+                        editar
+                    </button></td>
                       <td><button class="btn btn-danger btn-sm" 
                         (click)="eliminar(chicken)">
                         eliminar

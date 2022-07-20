@@ -20,7 +20,21 @@ export class ChickenService {
     return this.http.get<Chicken[]>(this.api);
 
   }
+  public crear(chicken:Chicken):Observable<Chicken[]>{
+    return this.http.post<Chicken[]>(this.api,chicken);
+  }
 
+
+  public ver(id: number): Observable<Chicken> {
+    return this.http.get<Chicken>(`${this.api}/${id}`);
+  }
+
+
+    public editar(chicken:Chicken):Observable<Chicken[]>{
+      return this.http.put<Chicken[]>(`${this.api}/${chicken.id}`,chicken);
+  
+    }
+  
   public eliminar(id:number):Observable<void>{
     return this.http.delete<void>(`${this.api}/${id}`);
   }

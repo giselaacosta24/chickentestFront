@@ -3,12 +3,15 @@
 
 
 <div class="card bg-light mb-3">
-  <div class="card-header">Chickentest</div>
+  <div class="card-header">Chickentest</div>     
+
   <div class="card-body">
-      <button class="btn btn-primary my-2" routerLink="/principal">ir a principal</button>
       <div class="alert alert-info" *ngIf="eggs?.length==0">
           No hay pollos en el sistema.
-      </div>
+      </div>     
+       <button class="btn btn-primary my-2" routerLink="/eggs/form">Crear</button>
+
+
       <table class="table table-hover table-striped" *ngIf="eggs?.length>0">
           <thead>
               <tr>
