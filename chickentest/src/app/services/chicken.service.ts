@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Chicken } from '../models/Chicken';
 
@@ -10,6 +10,7 @@ import { Chicken } from '../models/Chicken';
 
 export class ChickenService {
   
+  protected cabeceras: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   api:string = 'http://localhost:8080/api/v1/chickens'
 
@@ -31,7 +32,8 @@ export class ChickenService {
 
 
     public editar(chicken:Chicken):Observable<Chicken[]>{
-      return this.http.put<Chicken[]>(`${this.api}/${chicken.id}`,chicken);
+      return this.http.put<Chicken[]>(`${this.api}/${chicken.id}`,chicken, 
+      { headers: this.cabeceras });
   
     }
   

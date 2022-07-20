@@ -31,12 +31,12 @@ export class EggsComponent implements OnInit {
       showCancelButton: true,  
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: `Yes, delete`,  
+      confirmButtonText: `Si, Seguro`,  
     }).then((result) => {  
         if (result.value) {    
           this.api.eliminar(egg.id).subscribe(()=>{
             this.eggs=this.eggs.filter(c => c !== egg);
-          Swal.fire('Deleted!', '', 'success')  
+          Swal.fire('Borrado!', '', 'success')  
          });
         }
     });

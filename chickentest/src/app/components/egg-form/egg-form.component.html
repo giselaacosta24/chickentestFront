@@ -22,11 +22,12 @@
 
       
 
+          
             <div class="form-group">
-              <button type="button" class="btn btn-primary" 
-                (click)="crear()">Agregar
-                </button> 
-            </div>
+                <button type="button" class="btn btn-primary" 
+                  (click)="egg.id? editar(): crear()"> {{ egg.id? 'Editar': 'Crear' }}
+                  </button> 
+              </div>
         </form>
     </div>
 </div>

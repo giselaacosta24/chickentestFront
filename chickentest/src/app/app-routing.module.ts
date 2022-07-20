@@ -14,7 +14,9 @@ const routes: Routes = [
   { path: 'chickens', component: ChickensComponent },
   {path: 'principal', component: PrincipalComponent},
   {path: 'eggs/form', component: EggFormComponent},
-  {path: 'chickens/form', component: ChickenFormComponent}
+  {path: 'chickens/form', component: ChickenFormComponent},
+  {path: 'chickens/form/:id', component: ChickenFormComponent},
+  {path: 'eggs/form/:id', component: EggFormComponent}
 
 
 ];

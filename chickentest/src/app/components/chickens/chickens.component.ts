@@ -31,12 +31,12 @@ export class ChickensComponent implements OnInit {
       showCancelButton: true,  
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: `Yes, delete`,  
+      confirmButtonText: `Si, seguro`,  
     }).then((result) => {  
         if (result.value) {    
           this.api.eliminar(chicken.id).subscribe(()=>{
             this.chickens=this.chickens.filter(c => c !== chicken);
-          Swal.fire('Deleted!', '', 'success')  
+          Swal.fire('Borrado!', '', 'success')  
          });
         }
     });

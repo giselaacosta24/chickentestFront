@@ -18,7 +18,14 @@ chicken:Chicken=new Chicken();
   { }
 
 ngOnInit(): void {
-  
+  this.route.paramMap.subscribe(params => {
+    const id: number = +params.get('id');
+    if(id){
+      this.api.ver(id).subscribe(c => {
+        this.chicken = c;
+      });
+    }
+  })
 }
   public crear(): void {
   
@@ -28,7 +35,14 @@ ngOnInit(): void {
 
         this.router.navigate(['/chickens'])})
 }
+public editar(): void {
+  
+  this.api.editar(this.chicken).subscribe(chicken => {
+    console.log(chicken);
+    Swal.fire('Se modifico con éxito', 'success');
 
+    this.router.navigate(['/chickens'])})
+}
 }
 
 

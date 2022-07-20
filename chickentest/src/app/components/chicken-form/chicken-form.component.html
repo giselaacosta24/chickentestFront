@@ -24,7 +24,7 @@
 
             <div class="form-group">
               <button type="button" class="btn btn-primary" 
-                (click)="crear()">Agregar
+                (click)="chicken.id? editar(): crear()"> {{ chicken.id? 'Editar': 'Crear' }}
                 </button> 
             </div>
         </form>
