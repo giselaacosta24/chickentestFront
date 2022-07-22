@@ -26,7 +26,7 @@ export class ChickensComponent implements OnInit {
 
     Swal.fire({  
       title: 'Estas seguro?',  
-      text:'¿Esta seguro de eliminar?',
+      text:'¿Esta seguro de vender?',
       icon: 'warning',
       showCancelButton: true,  
       confirmButtonColor: '#3085d6',
@@ -36,7 +36,7 @@ export class ChickensComponent implements OnInit {
         if (result.value) {    
           this.api.eliminar(chicken.id).subscribe(()=>{
             this.chickens=this.chickens.filter(c => c !== chicken);
-          Swal.fire('Borrado!', '', 'success')  
+          Swal.fire('Venta realizada!', '', 'success')  
          });
         }
     });

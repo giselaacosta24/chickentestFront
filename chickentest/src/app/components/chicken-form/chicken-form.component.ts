@@ -31,7 +31,7 @@ ngOnInit(): void {
   
       this.api.crear(this.chicken).subscribe(chicken => {
         console.log(chicken);
-        Swal.fire('Se creó con éxito', 'success');
+        Swal.fire('Compra realizada', 'success');
 
         this.router.navigate(['/chickens'])})
 }

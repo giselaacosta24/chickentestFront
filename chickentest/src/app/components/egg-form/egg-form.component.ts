@@ -30,7 +30,7 @@ export class EggFormComponent implements OnInit {
   
       this.api.crear(this.egg).subscribe(egg => {
         console.log(egg);
-        Swal.fire('Se creó con éxito', 'success');
+        Swal.fire('Compra realizada', 'success');
 
         this.router.navigate(['/eggs'])})
 }

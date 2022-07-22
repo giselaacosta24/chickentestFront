@@ -26,7 +26,7 @@ export class EggsComponent implements OnInit {
 
     Swal.fire({  
       title: 'Estas seguro?',  
-      text:'¿Esta seguro de eliminar?',
+      text:'¿Esta seguro de vender?',
       icon: 'warning',
       showCancelButton: true,  
       confirmButtonColor: '#3085d6',
@@ -36,7 +36,7 @@ export class EggsComponent implements OnInit {
         if (result.value) {    
           this.api.eliminar(egg.id).subscribe(()=>{
             this.eggs=this.eggs.filter(c => c !== egg);
-          Swal.fire('Borrado!', '', 'success')  
+          Swal.fire('Venta realizada!', '', 'success')  
          });
         }
     });
