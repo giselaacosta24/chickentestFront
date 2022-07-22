@@ -22,7 +22,7 @@
               <tbody *ngFor="let chicken of chickens">
                   <tr >
                      
-                      <td>{{chicken.price}}</td>
+                      <td>${{chicken.price}}</td>
                       <td> {{chicken.amountDays}}</td>
                       <td><button class="btn btn-secondary btn-sm" 
                         [routerLink]="['/chickens/form',chicken.id]">

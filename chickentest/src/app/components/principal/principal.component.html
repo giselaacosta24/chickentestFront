@@ -1,9 +1,30 @@
 <div class="card bg-light mb-3">
     <div class="card-header">Chickentest</div>     
-  
     <div class="card-body">
-        <div><h2>Detalle de la granja</h2></div>
-
+        <div class="alert alert-info" *ngIf="farms?.length==0">
+            No hay huevos en el sistema.
+        </div>     
+  
+        <div>
+            <h2  class="center">Informacion de la granja</h2>
+         <img src="../../../assets/pollos.jpg" alt="" width=80 class="img-fluid rounded mx-auto d-block" width="15%" height="20%">
+        </div>
+        <table class="table table-hover table-striped" *ngIf="farms?.length>0">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Presupuesto</th>
+                   
+                </tr>
+            </thead>
+            <tbody *ngFor="let farm of farms">
+                <tr >
+                   
+                    <td>Nombre:{{farm.name}}</td>
+                    <td>${{farm.estimate}}</td>
+               
+                </tr>
+            </tbody>
+        </table>
      
        </div>
-  </div>

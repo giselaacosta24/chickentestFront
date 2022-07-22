@@ -7,7 +7,7 @@
 
   <div class="card-body">
       <div class="alert alert-info" *ngIf="eggs?.length==0">
-          No hay pollos en el sistema.
+          No hay huevos en el sistema.
       </div>     
 
        <div><h2>Listado de Huevos</h2></div>
@@ -25,7 +25,7 @@
           <tbody *ngFor="let egg of eggs">
               <tr >
                  
-                  <td>{{egg.price}}</td>
+                  <td>${{egg.price}}</td>
                   <td> {{egg.amountDays}}</td>
                   <td><button class="btn btn-secondary btn-sm" 
                     [routerLink]="['/eggs/form',egg.id]">
