@@ -7,7 +7,9 @@
         <div class="alert alert-info" *ngIf="chickens?.length==0">
               No hay pollos en el sistema.
           </div>     
-                <div><h2>Listado de Pollos</h2></div>
+         <div> <img src="../../../assets/logogranja.jpg" alt="" width=80 class="img-fluid rounded mx-auto d-block" width="15%" height="20%">
+
+          <h2 class="center">Detalle de Pollos</h2></div>
         <button class="btn btn-primary my-2" routerLink="/chickens/form">Comprar</button>
 
           <table class="table table-hover table-striped" *ngIf="chickens?.length>0">

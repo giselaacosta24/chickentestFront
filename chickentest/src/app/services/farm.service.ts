@@ -18,6 +18,9 @@ export class FarmService {
 
   }
 
+  public ver(id: number): Observable<Farm> {
+    return this.http.get<Farm>(`${this.api}/${id}`);
+  }
 
 
 
