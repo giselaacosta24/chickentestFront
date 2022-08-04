@@ -1,0 +1,40 @@
+<div class="alert alert-info" *ngIf="farms?.length==0">
+    No existe granja en el sistema.
+    <button class="btn btn-primary my-2" routerLink="/farms/form">Crear</button>
+
+</div> 
+
+<table class="table table-hover table-striped" *ngIf="farms?.length>0">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Presupuesto</th>
+
+            <th>Modificar</th>
+            <th>Borrar</th>
+            <th>Mostrar</th>
+
+        </tr>
+    </thead>
+    <tbody *ngFor="let farm of farms">
+        <tr >
+            <td>{{farm.name}}</td>
+
+            <td>{{farm.estimate}}</td>
+           
+            <td><button class="btn btn-secondary btn-sm" 
+                [routerLink]="['/farms/form',farm.id]">
+                Modificar
+            </button></td>
+              <td><button class="btn btn-danger btn-sm" 
+                (click)="eliminar(farm)">
+                Borrar
+            </button></td>
+    
+             
+             <button type="button" class="btn btn-primary btn-sm pull-left  btn-primary-spacing" (click)="mostrarDetalles(farm)">Mostrar ganado</button>
+            <!--      <td>    <button type="button" class="btn btn-primary btn-sm pull-right btn-primary-spacing" (click)="ocultarDetalles()">Ocultar</button></td> -->
+        </tr>
+    </tbody>
+
+</table>

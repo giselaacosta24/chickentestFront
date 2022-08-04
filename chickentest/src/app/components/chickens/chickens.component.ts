@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Route, Router } from '@angular/router';
 import { Chicken } from 'src/app/models/Chicken';
+import { BuysellserviceService } from 'src/app/services/buysellservice.service';
 import { ChickenService } from 'src/app/services/chicken.service';
 import Swal from 'sweetalert2';
 
@@ -11,16 +13,29 @@ import Swal from 'sweetalert2';
 export class ChickensComponent implements OnInit {
 
   chickens:Chicken[];
-  constructor(private api:ChickenService) { 
+  constructor(private api:ChickenService,private apiBuySell:BuysellserviceService,private router:Router) { 
 
   }
   ngOnInit(): void {
-    this.api.listar().subscribe(chickens=>{
+    this.api.listarParaCompras().subscribe(chickens=>{
       this.chickens=chickens;
     }
       );
   }
 
+  comprar(chicken:Chicken)
+  {
+
+    console.log(chicken);
+          this.apiBuySell.comprarPollo(chicken,8).subscribe(()=>{
+            this.chickens=this.chickens.filter(c => c !== chicken);
+          Swal.fire('Compra realizada!', '', 'success')  
+         });
+      
+         this.router.navigate(['/chickens']);
+
+
+    }
   eliminar(chicken:Chicken)
   {
 

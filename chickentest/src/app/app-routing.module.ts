@@ -6,6 +6,8 @@ import { ChickensComponent } from './components/chickens/chickens.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { EggFormComponent } from './components/egg-form/egg-form.component';
 import { ChickenFormComponent } from './components/chicken-form/chicken-form.component';
+import { FarmFormComponent } from './components/farm-form/farm-form.component';
+import { FarmChickenComponent } from './components/farm-chicken/farm-chicken.component';
 
 
 const routes: Routes = [
@@ -16,7 +18,13 @@ const routes: Routes = [
   {path: 'eggs/form', component: EggFormComponent},
   {path: 'chickens/form', component: ChickenFormComponent},
   {path: 'chickens/form/:id', component: ChickenFormComponent},
-  {path: 'eggs/form/:id', component: EggFormComponent}
+  {path: 'eggs/form/:id', component: EggFormComponent},
+  {path: 'farms/form', component:FarmFormComponent},
+  {path: 'farms/form/:id', component: FarmFormComponent},
+  {path: 'granja', component: FarmChickenComponent}
+
+
+
 
 
 ];

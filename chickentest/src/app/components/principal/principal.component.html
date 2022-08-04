@@ -1,29 +1,17 @@
 <div class="card bg-light mb-3">
-    <div class="card-header">Chickentest</div>     
+    <div class="card-header">Chickentest
+
+    </div>     
     <div class="card-body">
-        <div class="alert alert-info" *ngIf="chickens?.length==0">
-            No hay huevos en el sistema.
-        </div>     
+          
   
         <div>
             <h2  class="center">Informacion de la granja</h2>
          <img src="../../../assets/pollos.jpg" alt="" width=80 class="img-fluid rounded mx-auto d-block" width="15%" height="20%">
+      
+      
+          <app-farms [listadoFarms]="ListadoFarmsPrincipal" (farmseleccionada)="tomarFarmParaDetalles($event)"  ></app-farms>
+          <app-farm-chicken [oneFarm]="oneFarm" ></app-farm-chicken>
         </div>
-        <table class="table table-hover table-striped" *ngIf="chickens?.length>0">
-            <thead>
-                <tr>
-                    <th>Nombre</th>
-                    <th>Presupuesto</th>
-                   
-                </tr>
-            </thead>
-            <tbody *ngFor="let chicken of chickens">
-                <tr >
-                   
-                    <td>{{chicken.price}}</td>
-                </tr>
-            </tbody>
-        
-        </table>
-     
-       </div>
+    </div>
+</div>

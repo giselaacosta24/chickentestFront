@@ -1,0 +1,47 @@
+<!-- <div *ngIf="!oneFarm.id">
+
+    <p>Ver lista de pollos</p>
+
+</div> -->
+<div *ngIf="oneFarm.id">
+
+    
+
+    <div class="card bg-light mb-3">
+        <div class="card-header">Listado de Pollos</div>
+  
+        <div class="card-body">
+          <div class="alert alert-info" *ngIf="chickens?.length==0">
+                No hay pollos en el sistema.
+            </div>     
+          
+           <button class="btn btn-primary my-2" routerLink="/chickens">Iniciar Compra</button>
+           <!-- <button class="btn btn-primary my-2" (click)="comprar(oneFarm.name)">Comprar</button> -->
+            <table class="table table-hover table-striped" *ngIf="chickens?.length>0">
+                <thead> 
+                    <tr>
+                        <th>Precio</th>
+                        <th>Dias</th>
+                        <th>Vender</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let chicken of chickens">
+                    <tr >
+                       
+                        <td>${{chicken.price}}</td>
+                        <td> {{chicken.amountDays}}</td>
+                     <!--    <td><button class="btn btn-secondary btn-sm" 
+                          [routerLink]="['/chickens/form',chicken.id]">
+                          Modificar
+                      </button></td>-->
+                        <td><button class="btn btn-danger btn-sm" 
+                          (click)="vender(chicken)">
+                          Vender
+                      </button></td> 
+                    </tr>
+                </tbody>
+            </table>
+         
+           </div>
+      </div>
+</div>
