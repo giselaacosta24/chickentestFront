@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Chicken } from '../models/Chicken';
+import { Egg } from '../models/Egg';
 import { Farm } from '../models/Farm';
 
 @Injectable({
@@ -15,13 +16,20 @@ export class BuysellserviceService {
 
 
   public comprarPollo(chicken:Chicken, id:number):Observable<void>{
-    return this.http.put<void>(`${this.api}/${id}`,chicken);
+    return this.http.put<void>(`${this.api}/buyChicken/${id}`,chicken);
   }
 
-  public modificarPresupuesto(farm:Farm, id:number):Observable<void>{
-    return this.http.put<void>(`${this.api}/${id}`,farm);
+
+  public venderPollo(id:number):Observable<void>{
+    return this.http.delete<void>(`${this.api}/sellChicken/${id}`);
   }
-  public vender(id:number):Observable<void>{
-    return this.http.delete<void>(`${this.api}/${id}`);
+
+  public comprarHuevo(egg:Egg, id:number):Observable<void>{
+    return this.http.put<void>(`${this.api}/buyEgg/${id}`,egg);
+  }
+
+
+  public venderHuevo(id:number):Observable<void>{
+    return this.http.delete<void>(`${this.api}/sellEgg/${id}`);
   }
 }

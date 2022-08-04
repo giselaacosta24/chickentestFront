@@ -35,4 +35,14 @@ export class EggService {
   public eliminar(id:number):Observable<void>{
     return this.http.delete<void>(`${this.api}/${id}`);
   }
+
+  public listarHuevosParaCompras():Observable<Egg[]>{
+    return this.http.get<Egg[]>(`${this.api}/eggsfree`);
+
+  }
+
+  public listarHuevosGranja(id:number):Observable<Egg[]>{
+    return this.http.get<Egg[]>(`${this.api}/eggsFarm/${id}`);
+
+  }
 }

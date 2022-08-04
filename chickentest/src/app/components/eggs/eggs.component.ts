@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Egg } from 'src/app/models/Egg';
+import { BuysellserviceService } from 'src/app/services/buysellservice.service';
 import { EggService } from 'src/app/services/egg.service';
 import Swal from 'sweetalert2';
 
@@ -11,14 +13,15 @@ import Swal from 'sweetalert2';
 export class EggsComponent implements OnInit {
 
   eggs:Egg[];
-  constructor(private api:EggService) { 
+  constructor(private api:EggService,private apiBuySell:BuysellserviceService,private router:Router) { 
 
   }
   ngOnInit(): void {
-    this.api.listar().subscribe(eggs=>{
-      this.eggs=eggs;
-    }
-      );
+
+      this.api.listarHuevosParaCompras().subscribe(eggs=>{
+        this.eggs=eggs;
+      }
+        );
   }
 
   eliminar(egg:Egg)
@@ -42,6 +45,19 @@ export class EggsComponent implements OnInit {
     });
 
     }
+
+    comprar(egg:Egg)
+    {
+  
+            this.apiBuySell.comprarHuevo(egg,8).subscribe(()=>{
+              this.eggs=this.eggs.filter(c => c !== egg);
+            Swal.fire('Compra realizada!', '', 'success')  
+           });
+        
+           this.router.navigate(['/eggs']);
+  
+  
+      }
   }
 
  

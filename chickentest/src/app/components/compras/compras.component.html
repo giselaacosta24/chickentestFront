@@ -1,0 +1,71 @@
+
+ <div class="card-header">Presupuesto para compras:
+<div *ngFor="let farm of farms">
+    ${{farm.estimate}}
+
+</div>
+</div>
+<div class="card-body">
+        
+    <div class="alert alert-info" *ngIf="chickens?.length==0">
+          No hay pollos para compra.       
+      </div>                 
+
+      <div *ngIf="chickens?.length>0">
+      <h4 class="center">Pollos disponibles para compra</h4>
+<table class="table table-hover table-striped" >
+    <thead> 
+        <tr>
+            <th>Precio</th>
+            <th>Dias</th>
+            <th>Comprar</th>
+       </tr>
+    </thead>
+    <tbody *ngFor="let chicken of chickens">
+        <tr >
+           
+           <td>${{chicken.price}}</td>
+            <td> {{chicken.amountDays}}</td>
+
+            <td><button class="btn btn-secondary btn-sm" 
+              (click)="comprarPollos(chicken)">
+              Comprar para granja
+          </button></td>
+      
+
+        </tr>
+    </tbody>
+</table>
+</div>
+<div class="alert alert-info" *ngIf="eggs?.length==0">
+    No hay Huevos para compra.       
+
+</div>                 
+
+<div *ngIf="eggs?.length>0">
+<h4 class="center">Huevos disponibles para compra</h4>
+<table class="table table-hover table-striped" >
+<thead> 
+  <tr>
+      <th>Precio</th>
+      <th>Dias</th>
+      <th>Comprar</th>
+ </tr>
+</thead>
+<tbody *ngFor="let egg of eggs">
+  <tr >
+     
+     <td>${{egg.price}}</td>
+      <td> {{egg.amountDays}}</td>
+
+      <td><button class="btn btn-secondary btn-sm" 
+        (click)="comprarHuevos(egg)">
+        Comprar para granja
+    </button></td>
+
+
+  </tr>
+</tbody>
+</table>
+</div>
+</div>

@@ -1,8 +1,12 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Route } from '@angular/router';
+import { Observable } from 'rxjs';
 import { Chicken } from 'src/app/models/Chicken';
+import { Egg } from 'src/app/models/Egg';
 import { Farm } from 'src/app/models/Farm';
+import { BuysellserviceService } from 'src/app/services/buysellservice.service';
 import { ChickenService } from 'src/app/services/chicken.service';
+import { EggService } from 'src/app/services/egg.service';
 import { FarmService } from 'src/app/services/farm.service';
 import Swal from 'sweetalert2';
 
@@ -14,13 +18,13 @@ import Swal from 'sweetalert2';
 export class FarmsComponent implements OnInit {
 
   farms:Farm[] = [];;
+  chickens: Chicken[] = [];
+  eggs: Egg[] = [];
+  @Output() farmSeleccionado: EventEmitter<any>= new EventEmitter<any>();
 
-
-  oneFarm: Farm;
-  farm:Farm;
-   chickens: Chicken[] = [];
-   @Output() farmSeleccionada: EventEmitter<any>= new EventEmitter<any>();
-  constructor(private api:FarmService,private route:ActivatedRoute,private apichickens:ChickenService) { 
+  constructor(private api:FarmService,private route:ActivatedRoute,
+    private apichickens:ChickenService,private buysellservice:BuysellserviceService,
+    private apiEggs:EggService) { 
 
   }
   ngOnInit(): void {
@@ -29,50 +33,10 @@ export class FarmsComponent implements OnInit {
     }
       );
  
-      // this.route.paramMap.subscribe(params => {
-      //   const id: number = +params.get('id');
-      //   this.api.ver(1).subscribe(f => {
-      //     this.farm = f;
-      //     this.chickens = this.farm.chickens;
-       
-  
-      //   });
-      // });
-// console.log(this.farm);
-// console.log(this.chickens);
-  }
-
-  public mostrar(id: number) {
-     this.route.paramMap.subscribe(params => {
-
-      // const id: number = +params.get('id');
-      this.api.ver(id).subscribe(f => {
-        this.farm = f;
-        // this.chickens = this.farm.chickens;
-         console.log(this.farm);
-
-
-      });
-    }); 
-
-  /*   this.api.editar(this.egg).subscribe(egg => {
-      console.log(egg);
-      Swal.fire('Se modifico con éxito', 'success');
-  
-      this.router.navigate(['/eggs'])}) */
   }
 
 
- 
-/*   mostrarDetalles(oneFarm:Farm)
-  {
-    console.info("mostrar detalles",oneFarm);
-    this.farmSeleccionada.emit(oneFarm);
-    this.apichickens.listar().subscribe(chickens=>{
-      this.chickens=chickens;
-    }
-      );
-  } */
+  
 
   ocultarDetalles()
   {
@@ -81,22 +45,44 @@ export class FarmsComponent implements OnInit {
 
   }
 
-  tomarFarmParaDetalles(NuevoFarm: Farm)
-  {
-    this.oneFarm=NuevoFarm;   
-  }
-  mostrarDetalles(oneFarm:Farm)
-     {
-       console.info("mostrar detalles",oneFarm);
-       this.farmSeleccionada.emit(oneFarm);
-     }
 
-  eliminar(farm:Farm)
+  mostrarPollosyHuevos(id:number)
+     {
+      this.apichickens.listarPollosGranja(id).subscribe(c => {
+        this.chickens = c; });
+        this.apiEggs.listarHuevosGranja(id).subscribe(e => {
+          this.eggs = e;  });
+         console.log(this.chickens);        
+          console.log(this.eggs);
+
+//  if(this.chickens.length==0)
+//       {
+//         Swal.fire('No hay pollos para vender!', '', 'warning')  
+
+//       }
+
+    
+ 
+//  if(this.eggs.length==0)
+//       {
+//         Swal.fire('No hay huevos para vender!', '', 'warning')  
+
+//       }
+
+     
+     }
+    
+comprar(farm:Farm)
+{
+
+  console.log(farm);
+}
+  venderPollo(chicken:Chicken)
   {
 
     Swal.fire({  
       title: 'Estas seguro?',  
-      text:'¿Esta seguro de borrar?',
+      text:'¿Esta seguro de vender?',
       icon: 'warning',
       showCancelButton: true,  
       confirmButtonColor: '#3085d6',
@@ -104,12 +90,40 @@ export class FarmsComponent implements OnInit {
       confirmButtonText: `Si, Seguro`,  
     }).then((result) => {  
         if (result.value) {    
-          this.api.eliminar(farm.id).subscribe(()=>{
-            this.farms=this.farms.filter(c => c !== farm);
-          Swal.fire('Granja Eliminada!', '', 'success')  
+          this.buysellservice.venderPollo(chicken.id).subscribe(()=>{
+            this.chickens=this.chickens.filter(c => c !== chicken);
+          Swal.fire('Pollo Vendido!', '', 'success')  
          });
         }
     });
 
     }
+
+    venderHuevo(egg:Egg)
+    {
+  
+      Swal.fire({  
+        title: 'Estas seguro?',  
+        text:'¿Esta seguro de vender?',
+        icon: 'warning',
+        showCancelButton: true,  
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: `Si, Seguro`,  
+      }).then((result) => {  
+          if (result.value) {    
+            this.buysellservice.venderHuevo(egg.id).subscribe(()=>{
+              this.eggs=this.eggs.filter(e => e !== egg);
+            Swal.fire('Huevo Vendido!', '', 'success')  
+           });
+          }
+      });
+  
+      }
+
+      mostrarDetalles(farm:Farm)
+      {
+        console.info("mostrar detalles",farm);
+        this.farmSeleccionado.emit(farm);
+      }
 }

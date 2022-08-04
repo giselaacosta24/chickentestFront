@@ -42,4 +42,9 @@ export class FarmService {
   public eliminar(id:number):Observable<void>{
     return this.http.delete<void>(`${this.api}/${id}`);
   }
+
+  public modificarPresupuesto(id:number,farm:Farm, number:number):Observable<void>{
+    console.log(`${this.api}/${id}/${number}`,farm);
+    return this.http.put<void>(`${this.api}/${id}/${number}`,farm);
+  }
 }

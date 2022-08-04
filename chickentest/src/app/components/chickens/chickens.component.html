@@ -4,6 +4,7 @@
       <div class="card-header">Listado de Pollos</div>
 
       <div class="card-body">
+        
         <div class="alert alert-info" *ngIf="chickens?.length==0">
               No hay pollos para compra.       
 
@@ -20,8 +21,7 @@
                       <th>Dias</th>
                       <th>Comprar</th>
                       <th>Modificar</th>
-<!--                       <th>Vender</th>
- -->                  </tr>
+                 </tr>
               </thead>
               <tbody *ngFor="let chicken of chickens">
                   <tr >
@@ -30,16 +30,13 @@
                       <td> {{chicken.amountDays}}</td>
                       <td><button class="btn btn-secondary btn-sm" 
                         (click)="comprar(chicken)">
-                        Comprar
+                        Comprar para granja
                     </button></td>
                       <td><button class="btn btn-secondary btn-sm" 
                         [routerLink]="['/chickens/form',chicken.id]">
                         Modificar
                     </button></td>
-               <!--        <td><button class="btn btn-danger btn-sm" 
-                        (click)="eliminar(chicken)">
-                        Vender
-                    </button></td> -->
+         
                   </tr>
               </tbody>
           </table>

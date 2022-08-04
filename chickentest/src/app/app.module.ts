@@ -14,8 +14,8 @@ import { EggFormComponent } from './components/egg-form/egg-form.component';
 import { ChickenFormComponent } from './components/chicken-form/chicken-form.component';
 import { FarmsComponent } from './components/farms/farms.component';
 import { FarmFormComponent } from './components/farm-form/farm-form.component';
-import { FarmChickenComponent } from './components/farm-chicken/farm-chicken.component';
-import { AltachickenComponent } from './components/altachicken/altachicken.component';
+import { ComprasComponent } from './components/compras/compras.component';
+
 
 @NgModule({
   declarations: [
@@ -28,8 +28,7 @@ import { AltachickenComponent } from './components/altachicken/altachicken.compo
     ChickenFormComponent,
     FarmsComponent,
     FarmFormComponent,
-    FarmChickenComponent,
-    AltachickenComponent
+    ComprasComponent,
   ],
   imports: [
     BrowserModule,

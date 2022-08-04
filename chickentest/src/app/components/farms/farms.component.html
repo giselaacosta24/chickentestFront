@@ -10,9 +10,8 @@
             <th>Nombre</th>
             <th>Presupuesto</th>
 
-            <th>Modificar</th>
-            <th>Borrar</th>
-            <th>Mostrar</th>
+            <th></th>
+            <th></th>
 
         </tr>
     </thead>
@@ -32,9 +31,81 @@
             </button></td>
     
              
-             <button type="button" class="btn btn-primary btn-sm pull-left  btn-primary-spacing" (click)="mostrarDetalles(farm)">Mostrar ganado</button>
-            <!--      <td>    <button type="button" class="btn btn-primary btn-sm pull-right btn-primary-spacing" (click)="ocultarDetalles()">Ocultar</button></td> -->
-        </tr>
+             <td>  <button type="button" class="btn btn-primary btn-sm pull-left  btn-primary-spacing" (click)="mostrarPollosyHuevos(farm.id)">Mostrar ganado</button>
+               <button type="button" class="btn btn-primary btn-sm pull-right btn-primary-spacing" (click)="ocultarDetalles()">Ocultar</button>
+
+            </tr>
     </tbody>
 
 </table>
+<div class="card bg-light mb-3">
+ 
+    <div class="card-body" *ngIf="chickens?.length>0">
+       
+    
+       <div><h3 class="text-align-center">Listado de Pollos</h3></div>
+        <table class="table table-hover table-striped" >
+            <thead> 
+                <tr>
+                    <th>Precio</th>
+                    <th>Dias</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let chicken of chickens">
+                <tr >
+                   
+                    <td>${{chicken.price}}</td>
+                    <td> {{chicken.amountDays}}</td>
+                    <td><button class="btn btn-secondary btn-sm" 
+                      [routerLink]="['/chickens/form',chicken.id]">
+                      Modificar
+                  </button>
+                    <td><button class="btn btn-danger btn-sm" 
+                      (click)="venderPollo(chicken)">
+                      Vender
+                  </button></td> 
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary btn-sm pull-right btn-primary-spacing" routerLink="/compras">Continuar Compra</button>
+
+       </div>
+  </div>
+
+  <div class="card bg-light mb-3">
+ 
+    <div class="card-body" *ngIf="eggs?.length>0">
+       
+    
+       <div><h3 class="text-align-center">Listado de Huevos</h3></div>
+        <table class="table table-hover table-striped" >
+            <thead> 
+                <tr>
+                    <th>Precio</th>
+                    <th>Dias</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let egg of eggs">
+                <tr >
+                   
+                    <td>${{egg.price}}</td>
+                    <td> {{egg.amountDays}}</td>
+                    <td><button class="btn btn-secondary btn-sm" 
+                      [routerLink]="['/eggs/form',egg.id]">
+                      Modificar
+                  </button>
+                    <td><button class="btn btn-danger btn-sm" 
+                      (click)="venderHuevo(egg)">
+                      Vender
+                  </button></td> 
+                </tr>
+            </tbody>
+        </table>
+        <button class="btn btn-primary btn-sm pull-right btn-primary-spacing" routerLink="/eggs">Continuar Compra</button>
+
+       </div>
+  </div>

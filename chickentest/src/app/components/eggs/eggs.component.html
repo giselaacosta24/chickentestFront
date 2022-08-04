@@ -3,26 +3,27 @@
 
 
 <div class="card bg-light mb-3">
-  <div class="card-header">Chickentest</div>     
+  <div class="card-header">Listado de Huevos</div>     
 
   <div class="card-body">
       <div class="alert alert-info" *ngIf="eggs?.length==0">
-          No hay huevos en el sistema.
+        No hay huevos para compra.
       </div>     
 
        <div>
+        <button class="btn btn-primary my-2" routerLink="/eggs/form">Reponer huevos</button>
+
         <img src="../../../assets/gran.webp" alt="" width=80 class="img-fluid rounded mx-auto d-block" width="15%" height="20%">
 
         <br><h2 class="center">Detalle de Huevos</h2></div>
-        <button class="btn btn-primary my-2" routerLink="/eggs/form">Comprar</button>
 
       <table class="table table-hover table-striped" *ngIf="eggs?.length>0">
           <thead>
               <tr>
                   <th>Precio</th>
                   <th>Dias</th>
+                  <th>Comprar</th>
                   <th>Modificar</th>
-                  <th>Vender</th>
               </tr>
           </thead>
           <tbody *ngFor="let egg of eggs">
@@ -31,12 +32,12 @@
                   <td>${{egg.price}}</td>
                   <td> {{egg.amountDays}}</td>
                   <td><button class="btn btn-secondary btn-sm" 
+                    (click)="comprar(egg)">
+                    Comprar para granja
+                </button></td>
+                  <td><button class="btn btn-secondary btn-sm" 
                     [routerLink]="['/eggs/form',egg.id]">
                     Modificar
-                </button></td>
-                  <td><button class="btn btn-danger btn-sm" 
-                    (click)="eliminar(egg)">
-                    Vender
                 </button></td>
               </tr>
           </tbody>
@@ -44,3 +45,5 @@
    
      </div>
 </div>
+
+

@@ -41,7 +41,7 @@ export class ChickenService {
     return this.http.delete<void>(`${this.api}/${id}`);
   }
 
-  public listarParaCompras():Observable<Chicken[]>{
+  public listarPollosParaCompras():Observable<Chicken[]>{
     return this.http.get<Chicken[]>(`${this.api}/chickensfree`);
 
   }

@@ -11,18 +11,12 @@ import { FarmService } from 'src/app/services/farm.service';
 })
 export class PrincipalComponent implements OnInit {
 
-  @Output()
-  oneFarm: Farm = new Farm;
 
-  ListadoFarmsPrincipal: Farm[] = [];
 
 
   constructor() { }
 
   ngOnInit(): void {
   }
-  tomarFarmParaDetalles(NuevoFarm: Farm)
-  {
-    this.oneFarm=NuevoFarm;   
-  }
+
 }
