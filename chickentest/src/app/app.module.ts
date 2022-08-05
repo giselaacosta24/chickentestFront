@@ -15,6 +15,7 @@ import { ChickenFormComponent } from './components/chicken-form/chicken-form.com
 import { FarmsComponent } from './components/farms/farms.component';
 import { FarmFormComponent } from './components/farm-form/farm-form.component';
 import { ComprasComponent } from './components/compras/compras.component';
+import { VentasComponent } from './components/ventas/ventas.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { ComprasComponent } from './components/compras/compras.component';
     FarmsComponent,
     FarmFormComponent,
     ComprasComponent,
+    VentasComponent,
   ],
   imports: [
     BrowserModule,

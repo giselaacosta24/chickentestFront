@@ -55,21 +55,6 @@ export class FarmsComponent implements OnInit {
          console.log(this.chickens);        
           console.log(this.eggs);
 
-//  if(this.chickens.length==0)
-//       {
-//         Swal.fire('No hay pollos para vender!', '', 'warning')  
-
-//       }
-
-    
- 
-//  if(this.eggs.length==0)
-//       {
-//         Swal.fire('No hay huevos para vender!', '', 'warning')  
-
-//       }
-
-     
      }
     
 comprar(farm:Farm)
@@ -92,6 +77,8 @@ comprar(farm:Farm)
         if (result.value) {    
           this.buysellservice.venderPollo(chicken.id).subscribe(()=>{
             this.chickens=this.chickens.filter(c => c !== chicken);
+            this.api.modificarPresupuesto("venta",this.farms[0].id,chicken.price,this.farms[0]).subscribe(farm => {
+              location.reload(); }) ;
           Swal.fire('Pollo Vendido!', '', 'success')  
          });
         }

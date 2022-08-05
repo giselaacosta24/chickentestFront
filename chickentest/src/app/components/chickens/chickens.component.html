@@ -19,8 +19,8 @@
                   <tr>
                       <th>Precio</th>
                       <th>Dias</th>
-                      <th>Comprar</th>
-                      <th>Modificar</th>
+<!--                       <th>Comprar</th>
+ -->                      <th>Modificar</th>
                  </tr>
               </thead>
               <tbody *ngFor="let chicken of chickens">
@@ -28,10 +28,10 @@
                      
                       <td>${{chicken.price}}</td>
                       <td> {{chicken.amountDays}}</td>
-                      <td><button class="btn btn-secondary btn-sm" 
+                      <!-- <td><button class="btn btn-secondary btn-sm" 
                         (click)="comprar(chicken)">
                         Comprar para granja
-                    </button></td>
+                    </button></td> -->
                       <td><button class="btn btn-secondary btn-sm" 
                         [routerLink]="['/chickens/form',chicken.id]">
                         Modificar

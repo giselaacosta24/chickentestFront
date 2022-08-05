@@ -22,7 +22,7 @@
               <tr>
                   <th>Precio</th>
                   <th>Dias</th>
-                  <th>Comprar</th>
+                  <!-- <th>Comprar</th> -->
                   <th>Modificar</th>
               </tr>
           </thead>
@@ -31,10 +31,10 @@
                  
                   <td>${{egg.price}}</td>
                   <td> {{egg.amountDays}}</td>
-                  <td><button class="btn btn-secondary btn-sm" 
+                <!--   <td><button class="btn btn-secondary btn-sm" 
                     (click)="comprar(egg)">
                     Comprar para granja
-                </button></td>
+                </button></td> -->
                   <td><button class="btn btn-secondary btn-sm" 
                     [routerLink]="['/eggs/form',egg.id]">
                     Modificar

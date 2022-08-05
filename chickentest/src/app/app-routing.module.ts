@@ -8,6 +8,7 @@ import { EggFormComponent } from './components/egg-form/egg-form.component';
 import { ChickenFormComponent } from './components/chicken-form/chicken-form.component';
 import { FarmFormComponent } from './components/farm-form/farm-form.component';
 import { ComprasComponent } from './components/compras/compras.component';
+import { VentasComponent } from './components/ventas/ventas.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,9 @@ const routes: Routes = [
   {path: 'eggs/form/:id', component: EggFormComponent},
   {path: 'farms/form', component:FarmFormComponent},
   {path: 'farms/form/:id', component: FarmFormComponent},
-  {path: 'compras', component: ComprasComponent}
+  {path: 'compras', component: ComprasComponent},
+  {path: 'ventas', component: VentasComponent}
+
 
 
 

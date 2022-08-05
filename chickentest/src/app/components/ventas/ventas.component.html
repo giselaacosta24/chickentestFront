@@ -1,0 +1,104 @@
+
+
+    <div class="container py-3">
+
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+              
+                <header>
+           
+          
+                    <div class="pricing-header p-3 pb-md-6 mx-auto text-center">
+                        <h2 class="display-6 text-center mb-4">Presupuesto</h2>
+                        <h2 class="display-6 text-center mb-4">Actual</h2>
+        
+                        <h2 class="display-6 text-center mb-4" *ngFor="let farm of farms">
+                        ${{farm.estimate}}
+                    
+                      
+                        <button class="btn btn-secondary btn-sm" 
+                        (click)="iniciarVenta(farm.id)">
+                       IniciarVenta
+                    </button>  </h2>
+                    </div>
+                  </header>
+              <div class="col">
+                  <div class="card-header py-3 text-bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">Pollos</h4>
+                  </div>
+                  <div class="card-body">
+                 <!--    <div class="alert alert-info" *ngIf="chickens?.length==0">
+                        No hay pollos para compra.       
+                    </div>   -->
+                    <div *ngIf="chickens?.length>0">
+          
+                    <table class="table table-hover table-striped" >
+                        <thead> 
+                            <tr>
+                                <th>Precio</th>
+                                <th>Dias</th>
+                                <th>Comprar</th>
+                           </tr>
+                        </thead>
+                        <tbody *ngFor="let chicken of chickens">
+                            <tr >
+                               
+                               <td>${{chicken.price}}</td>
+                                <td> {{chicken.amountDays}}</td>
+                    
+                                <td><button class="btn btn-secondary btn-sm" 
+                                    (click)="venderPollo(chicken)">
+                                 Vender
+                              </button></td>
+                          
+                    
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h4 class="my-0 fw-normal">Total Pollos ={{chickens?.length}} </h4>
+        
+                  </div>
+                </div>
+        
+              </div>
+              <div class="col">
+                  <div class="card-header py-3 text-bg-primary border-primary">
+                    <h4 class="my-0 fw-normal">Huevos</h4>
+                  </div>
+                  <div class="card-body">
+                <!--     <div class="alert alert-info" *ngIf="eggs?.length==0">
+                        No hay Huevos para compra.       
+                    
+                    </div>  -->
+                    <div *ngIf="eggs?.length>0">
+                    <table class="table table-hover table-striped" >
+                        <thead> 
+                          <tr>
+                              <th>Precio</th>
+                              <th>Dias</th>
+                              <th>Comprar</th>
+                         </tr>
+                        </thead>
+                        <tbody *ngFor="let egg of eggs">
+                          <tr >
+                             
+                             <td>${{egg.price}}</td>
+                              <td> {{egg.amountDays}}</td>
+        
+                              <td><button class="btn btn-secondary btn-sm" 
+                                (click)="venderHuevo(egg)">
+                                  Vender
+                              </button></td>
+                        
+                        
+                          </tr>
+                        </tbody>
+                        </table>
+                        <h4 class="my-0 fw-normal">Total Huevos ={{eggs?.length}} </h4>
+        
+                    </div>
+                  </div>
+                </div>
+            </div>
+            </main>
+        </div>
