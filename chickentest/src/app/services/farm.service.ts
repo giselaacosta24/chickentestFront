@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { catchError, map, Observable, throwError } from 'rxjs';
 import { Farm } from '../models/Farm';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root'
@@ -45,6 +46,24 @@ export class FarmService {
 
   public modificarPresupuesto(tipo:string,id:number, number:number,farm:Farm):Observable<Farm[]>{
     return this.http.put<Farm[]>(`${this.api}/${tipo}/${id}/${number}`,farm,
-    { headers: this.cabeceras });
+    { headers: this.cabeceras }).pipe(
+      catchError(this.handleError)
+    );
   }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      console.error('An error occurred:', error.error.message);
+    } else {
+   
+      console.error(
+        `Backend returned code ${error.status}`);
+
+    }
+    return throwError(        
+      Swal.fire('No posee presupuesto para comprar!', '', 'warning'))  ;
+
+      
+      };
+ 
 }

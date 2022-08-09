@@ -99,8 +99,8 @@ export class VentasComponent implements OnInit {
               this.buysellservice.venderPollo(chicken.id).subscribe(()=>{
                 this.chickens=this.chickens.filter(c => c !== chicken);
                 this.api.modificarPresupuesto("venta",this.farms[0].id,chicken.price,this.farms[0]).subscribe(farm => {
-              location.reload();
-            }) ;
+/*               location.reload();
+ */            }) ;
             //  Swal.fire('Pollo Vendido!', '', 'success')  
              });
              
@@ -125,8 +125,8 @@ export class VentasComponent implements OnInit {
                 this.buysellservice.venderHuevo(egg.id).subscribe(()=>{
                   this.eggs=this.eggs.filter(e => e !== egg);
                   this.api.modificarPresupuesto("venta",this.farms[0].id,egg.price,this.farms[0]).subscribe(farm => {
-                    location.reload();
-                  }) ;
+/*                     location.reload();
+ */                  }) ;
                 //Swal.fire('Huevo Vendido!', '', 'success')  
                });
               }

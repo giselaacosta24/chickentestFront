@@ -27,13 +27,10 @@
                 [routerLink]="['/farms/form',farm.id]">
                 Modificar
             </button></td>
-              <!-- <td><button class="btn btn-danger btn-sm" 
-                (click)="eliminar(farm)">
-                Borrar
-            </button></td> -->
+        
     
              
-             <td>  <button type="button" class="btn btn-primary btn-sm pull-left  btn-primary-spacing" (click)="mostrarPollosyHuevos(farm.id)">Mostrar ganado</button>
+             <td>  <button type="button" class="btn btn-primary btn-sm pull-left  btn-primary-spacing" (click)="mostrarPollosyHuevos(farm.id)">Mostrar stock Granja</button>
                <button type="button" class="btn btn-primary btn-sm pull-right btn-primary-spacing" (click)="ocultarDetalles()">Ocultar</button>
 
             </tr>
@@ -54,70 +51,27 @@
           
 
           <div class="col">
-              <div class="card-header py-3 text-bg-primary border-primary">
-                <h4 class="my-0 fw-normal">Pollos</h4>
-              </div>
+          
               <div class="card-body">
-             <!--    <div class="alert alert-info" *ngIf="chickens?.length==0">
-                    No hay pollos para compra.       
-                </div>   -->
+          
                 <div *ngIf="chickens?.length>0">
       
-                <table class="table table-hover table-striped" >
-                    <thead> 
-                        <tr>
-                            <th>Precio</th>
-                            <th>Dias</th>
-                       </tr>
-                    </thead>
-                    <tbody *ngFor="let chicken of chickens">
-                        <tr >
-                           
-                           <td>${{chicken.price}}</td>
-                            <td> {{chicken.amountDays}}</td>
-                
-                         
-                      
-                
-                        </tr>
-                    </tbody>
-                </table>
-                <h4 class="my-0 fw-normal">Total Pollos ={{chickens?.length}} </h4>
+      
+                <h4 class="my-0 fw-normal">Cantidad de  Pollos ={{chickens?.length}} </h4>
     
               </div>
             </div>
     
           </div>
           <div class="col">
-              <div class="card-header py-3 text-bg-primary border-primary">
-                <h4 class="my-0 fw-normal">Huevos</h4>
-              </div>
+             
               <div class="card-body">
-            <!--     <div class="alert alert-info" *ngIf="eggs?.length==0">
-                    No hay Huevos para compra.       
-                
-                </div>  -->
+       
                 <div *ngIf="eggs?.length>0">
-                <table class="table table-hover table-striped" >
-                    <thead> 
-                      <tr>
-                          <th>Precio</th>
-                          <th>Dias</th>
-                     </tr>
-                    </thead>
-                    <tbody *ngFor="let egg of eggs">
-                      <tr >
-                         
-                         <td>${{egg.price}}</td>
-                          <td> {{egg.amountDays}}</td>
-    
-                         
-                    
-                    
-                      </tr>
-                    </tbody>
-                    </table>
-                    <h4 class="my-0 fw-normal">Total Huevos ={{eggs?.length}} </h4>
+                  
+                    <h4 class="my-0 fw-normal">Cantidad de  Huevos ={{eggs?.length}} </h4>
+
+     
     
                 </div>
               </div>

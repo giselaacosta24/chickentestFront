@@ -7,6 +7,7 @@ import { BuysellserviceService } from 'src/app/services/buysellservice.service';
 import { ChickenService } from 'src/app/services/chicken.service';
 import { EggService } from 'src/app/services/egg.service';
 import { FarmService } from 'src/app/services/farm.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-compras',
@@ -36,7 +37,8 @@ export class ComprasComponent implements OnInit {
       });
       this.apiEggs.listarHuevosParaCompras().subscribe(eggs=>{
         this.eggs=eggs;
-      });           
+      });       
+        
 
   }
 
@@ -51,18 +53,17 @@ export class ComprasComponent implements OnInit {
     {
   
       const id=this.farms[0].id;
-
-            this.api.modificarPresupuesto("compra",this.farms[0].id,chicken.price,this.farms[0]).subscribe(farm => {
-              location.reload();}) ;
-
-              this.buysellservice.comprarPollo(chicken,id).subscribe(()=>{
-                this.chickens=this.chickens.filter(c => c !== chicken);
     
-                 
-    
-             }); 
+      try{this.api.modificarPresupuesto("compra",this.farms[0].id,chicken.price,this.farms[0]).subscribe(farm => {
+         this.buysellservice.comprarPollo(chicken,id).subscribe(()=>{
+           this.chickens=this.chickens.filter(c => c !== chicken)});
+           location.reload();
+       }) ;
+         
+         } catch{   
+          console.error("error");
 
-  
+         }
 
       }
     comprarHuevos(egg:Egg)
@@ -70,16 +71,16 @@ export class ComprasComponent implements OnInit {
   
             const id=this.farms[0].id;
     
-            this.api.modificarPresupuesto("compra",this.farms[0].id,egg.price,this.farms[0]).subscribe(farm => {
-              location.reload();}) ;
-
+           try{this.api.modificarPresupuesto("compra",this.farms[0].id,egg.price,this.farms[0]).subscribe(farm => {
               this.buysellservice.comprarHuevo(egg,id).subscribe(()=>{
-                this.eggs=this.eggs.filter(e => e !== egg);
-    
-                 
-    
-             }); 
+                this.eggs=this.eggs.filter(e => e !== egg)});
+                location.reload();
+            }) ;
+              
+              } catch{   
+               console.error("error");
 
+              }
   
 
       }

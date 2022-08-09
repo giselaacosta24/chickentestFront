@@ -52,8 +52,7 @@ export class FarmsComponent implements OnInit {
         this.chickens = c; });
         this.apiEggs.listarHuevosGranja(id).subscribe(e => {
           this.eggs = e;  });
-         console.log(this.chickens);        
-          console.log(this.eggs);
+    
 
      }
     
@@ -62,52 +61,9 @@ comprar(farm:Farm)
 
   console.log(farm);
 }
-  venderPollo(chicken:Chicken)
-  {
 
-    Swal.fire({  
-      title: 'Estas seguro?',  
-      text:'¿Esta seguro de vender?',
-      icon: 'warning',
-      showCancelButton: true,  
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: `Si, Seguro`,  
-    }).then((result) => {  
-        if (result.value) {    
-          this.buysellservice.venderPollo(chicken.id).subscribe(()=>{
-            this.chickens=this.chickens.filter(c => c !== chicken);
-            this.api.modificarPresupuesto("venta",this.farms[0].id,chicken.price,this.farms[0]).subscribe(farm => {
-              location.reload(); }) ;
-          Swal.fire('Pollo Vendido!', '', 'success')  
-         });
-        }
-    });
 
-    }
-
-    venderHuevo(egg:Egg)
-    {
-  
-      Swal.fire({  
-        title: 'Estas seguro?',  
-        text:'¿Esta seguro de vender?',
-        icon: 'warning',
-        showCancelButton: true,  
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: `Si, Seguro`,  
-      }).then((result) => {  
-          if (result.value) {    
-            this.buysellservice.venderHuevo(egg.id).subscribe(()=>{
-              this.eggs=this.eggs.filter(e => e !== egg);
-            Swal.fire('Huevo Vendido!', '', 'success')  
-           });
-          }
-      });
-  
-      }
-
+   
       mostrarDetalles(farm:Farm)
       {
         console.info("mostrar detalles",farm);
