@@ -1,4 +1,3 @@
-import { Chicken } from "./Chicken";
 
 export class Farm{
 

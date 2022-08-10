@@ -9,6 +9,7 @@ import { ChickenFormComponent } from './components/chicken-form/chicken-form.com
 import { FarmFormComponent } from './components/farm-form/farm-form.component';
 import { ComprasComponent } from './components/compras/compras.component';
 import { VentasComponent } from './components/ventas/ventas.component';
+import { TransactionsComponent } from './components/transactions/transactions.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,9 @@ const routes: Routes = [
   {path: 'farms/form', component:FarmFormComponent},
   {path: 'farms/form/:id', component: FarmFormComponent},
   {path: 'compras', component: ComprasComponent},
-  {path: 'ventas', component: VentasComponent}
+  {path: 'ventas', component: VentasComponent},
+  {path: 'transactions', component: TransactionsComponent}
+
 
 
 

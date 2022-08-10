@@ -48,34 +48,39 @@
 
     <main>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-          
+          <app-transactions></app-transactions>
 
-          <div class="col">
-          
-              <div class="card-body">
-          
-                <div *ngIf="chickens?.length>0">
-      
-      
-                <h4 class="my-0 fw-normal">Cantidad de  Pollos ={{chickens?.length}} </h4>
-    
-              </div>
-            </div>
-    
-          </div>
-          <div class="col">
-             
-              <div class="card-body">
-       
-                <div *ngIf="eggs?.length>0">
-                  
-                    <h4 class="my-0 fw-normal">Cantidad de  Huevos ={{eggs?.length}} </h4>
 
-     
+        <table  *ngIf="chickens?.length>0" >
+          <thead> 
+              <tr>
+                  <th>Unidades Pollos Total</th>
+                
+             </tr>
+          </thead>
+          <tbody >
+              <tr >
+                
+                 <td>Cantidad de  Pollos ={{chickens?.length}}</td>
+      
+              </tr>
+          </tbody>
+      </table> 
+      <table  *ngIf="eggs?.length>0" >
+        <thead> 
+            <tr>
+                <th>Unidades Huevos Total</th>
+              
+           </tr>
+        </thead>
+        <tbody >
+            <tr >
+              
+               <td>Cantidad de  Huevos ={{eggs?.length}}</td>
     
-                </div>
-              </div>
-            </div>
+            </tr>
+        </tbody>
+    </table> 
         </div>
         </main>
     </div>
