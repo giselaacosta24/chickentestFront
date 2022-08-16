@@ -28,7 +28,7 @@
                 Modificar
             </button></td>
         
-    
+
              
              <td>  <button type="button" class="btn btn-primary btn-sm pull-left  btn-primary-spacing" (click)="mostrarPollosyHuevos(farm.id)">Mostrar stock Granja</button>
                <button type="button" class="btn btn-primary btn-sm pull-right btn-primary-spacing" (click)="ocultarDetalles()">Ocultar</button>
@@ -37,6 +37,8 @@
     </tbody>
 
 </table>
+
+              <app-transactions></app-transactions>
 
 
   
@@ -48,7 +50,6 @@
 
     <main>
         <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-          <app-transactions></app-transactions>
 
 
         <table  *ngIf="chickens?.length>0" >

@@ -20,8 +20,8 @@ export class BuysellserviceService {
   }
 
 
-  public venderPollo(id:number):Observable<void>{
-    return this.http.delete<void>(`${this.api}/sellChicken/${id}`);
+  public venderPollo(chicken:Chicken, id:number):Observable<void>{
+    return this.http.put<void>(`${this.api}/sellChicken/${id}`,chicken);
   }
 
   public comprarHuevo(egg:Egg, id:number):Observable<void>{
@@ -29,7 +29,7 @@ export class BuysellserviceService {
   }
 
 
-  public venderHuevo(id:number):Observable<void>{
-    return this.http.delete<void>(`${this.api}/sellEgg/${id}`);
+  public venderHuevo(egg:Egg, id:number):Observable<void>{
+    return this.http.put<void>(`${this.api}/sellEgg/${id}`,egg);
   }
 }

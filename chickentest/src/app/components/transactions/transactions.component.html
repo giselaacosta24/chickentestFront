@@ -2,37 +2,47 @@
                  
     <div class="card-body">
   
-       <div *ngIf="compras?.length>0"> 
+       <div> 
   
       <table class="table table-hover table-striped" >
           <thead> 
-              <tr>
-                  <th>Compras Total</th>
+              <tr> 
+                <th>Cantidad Pollos Comprados</th>
+                  <th>Cantidad Pollos Vendidos</th>
+
+                  <th>Cantidad Huevos Comprados</th>
+                  <th>Cantidad Huevos Vendidos</th>
+                 
                 
+
+
              </tr>
           </thead>
           <tbody >
               <tr >
-                
-                 <td>${{comprastotal}}</td>
-      
+                  <td>{{comprasCantidadChicken}}</td>
+                 <td>{{ventasCantidadChicken}}</td> 
+                 <td>{{comprasCantidadEgg}}</td>
+                 <td>{{ventasCantidadEgg}}</td>
+                            
+               
               </tr>
           </tbody>
       </table> 
 
     </div>
-    <div *ngIf="ventas?.length>0"> 
+    <div *ngIf="ventas?.length>0 && compras?.length>0"> 
   
         <table class="table table-hover table-striped" >
             <thead> 
                 <tr>
-                    <th>Ventas Total</th>
-                  
+                    <th>Compras Total</th>
+                  <th>Ventas Total</th>
                </tr>
             </thead>
             <tbody >
                 <tr >
-                  
+                      <td>${{comprastotal}}</td>
                    <td>${{ventastotal}}</td>
         
                 </tr>

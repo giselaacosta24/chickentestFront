@@ -1,7 +1,7 @@
 
 
     <div class="card bg-light mb-3">
-      <div class="card-header">Listado de Pollos</div>
+      <!-- <div class="card-header">Listado de Pollos</div> -->
 
       <div class="card-body">
         
@@ -12,13 +12,12 @@
  
          <div> <img src="../../../assets/logogranja.jpg" alt="" width=80 class="img-fluid rounded mx-auto d-block" width="15%" height="20%">
 
-          <h2 class="center">Detalle de Pollos</h2></div>
+          <!-- <h2 class="center">Detalle de Pollos</h2></div> -->
 
           <table class="table table-hover table-striped" *ngIf="chickens?.length>0">
               <thead> 
                   <tr>
                       <th>Precio</th>
-                      <th>Dias</th>
 <!--                       <th>Comprar</th>
  -->                      <th>Modificar</th>
                  </tr>
@@ -27,7 +26,7 @@
                   <tr >
                      
                       <td>${{chicken.price}}</td>
-                      <td> {{chicken.amountDays}}</td>
+                      
                       <!-- <td><button class="btn btn-secondary btn-sm" 
                         (click)="comprar(chicken)">
                         Comprar para granja

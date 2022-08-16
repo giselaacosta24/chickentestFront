@@ -37,7 +37,7 @@ ngOnInit(): void {
         console.log(chicken);
         Swal.fire('Se repuso con exito', 'success');
 
-        this.router.navigate(['/chickens'])})
+        this.router.navigate(['/administrador'])})
 }
 
 
@@ -47,7 +47,7 @@ public editar(): void {
     console.log(chicken);
     Swal.fire('Se modifico con éxito', 'success');
 
-    this.router.navigate(['/principal'])})
+    this.router.navigate(['/administrador'])})
 }
 }
 

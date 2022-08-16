@@ -96,7 +96,7 @@ export class VentasComponent implements OnInit {
           confirmButtonText: `Si, Seguro`,  
         }).then((result) => {  
             if (result.value) {    
-              this.buysellservice.venderPollo(chicken.id).subscribe(()=>{
+              this.buysellservice.venderPollo(chicken,chicken.id).subscribe(()=>{
                 this.chickens=this.chickens.filter(c => c !== chicken);
                 this.api.modificarPresupuesto("venta",this.farms[0].id,chicken.price,this.farms[0]).subscribe(farm => {
 /*               location.reload();
@@ -122,7 +122,7 @@ export class VentasComponent implements OnInit {
             confirmButtonText: `Si, Seguro`,  
           }).then((result) => {  
               if (result.value) {    
-                this.buysellservice.venderHuevo(egg.id).subscribe(()=>{
+                this.buysellservice.venderHuevo(egg,egg.id).subscribe(()=>{
                   this.eggs=this.eggs.filter(e => e !== egg);
                   this.api.modificarPresupuesto("venta",this.farms[0].id,egg.price,this.farms[0]).subscribe(farm => {
 /*                     location.reload();

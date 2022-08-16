@@ -42,7 +42,20 @@ export class TransactionService {
   public totalVentas():Observable<Transaction[]>{
     return this.http.get<Transaction[]>(`${this.api}/sells/amount`).pipe(
        map((data) => {
-         //You can perform some transformation here
+         return data;
+       }),
+       catchError((err, caught) => {
+         console.error(err);
+         throw err;
+       }
+       )
+     );
+ 
+   }
+
+   public totalCantidad( transaction:String,product: String ):Observable<Transaction[]>{
+    return this.http.get<Transaction[]>(`${this.api}/${transaction}/${product}`).pipe(
+       map((data) => {
          return data;
        }),
        catchError((err, caught) => {

@@ -17,6 +17,7 @@ import { FarmFormComponent } from './components/farm-form/farm-form.component';
 import { ComprasComponent } from './components/compras/compras.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
+import { AdministradorComponent } from './components/administrador/administrador.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { TransactionsComponent } from './components/transactions/transactions.co
     ComprasComponent,
     VentasComponent,
     TransactionsComponent,
+    AdministradorComponent,
   ],
   imports: [
     BrowserModule,

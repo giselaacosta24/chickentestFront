@@ -7,25 +7,26 @@
             <div class="form-group">
                 <label for="precio">Precio</label>
       
-                      <input type="text" name="precio" class="form-control" id="precio" 
+                      $<input type="number" name="precio" class="form-control" id="precio" 
                 [(ngModel)]="egg.price">
             
                 
             </div>
             <div class="form-group">
-                <label for="dias">Dias</label>
-               <input type="text" name="dias" class="form-control" id="dias" 
-                [(ngModel)]="egg.amountDays">
+                <label for="dias">Fecha</label>
+               <input type="date" name="dias" class="form-control" id="dias" 
+                [(ngModel)]="egg.dateFarm">
                
             </div>
-        
+                        
+
 
       
 
           
             <div class="form-group">
                 <button type="button" class="btn btn-primary" 
-                  (click)="egg.id? editar(): crear()"> {{ egg.id? 'Modificar': 'Comprar' }}
+                  (click)="egg.id? editar(): crear()"> {{ egg.id? 'Modificar': 'Reponer' }}
                   </button> 
               </div>
         </form>

@@ -3,7 +3,7 @@
 
 
 <div class="card bg-light mb-3">
-  <div class="card-header">Listado de Huevos</div>     
+  <!-- <div class="card-header">Listado de Huevos</div>      -->
 
   <div class="card-body">
       <div class="alert alert-info" *ngIf="eggs?.length==0">
@@ -15,13 +15,12 @@
 
         <img src="../../../assets/gran.webp" alt="" width=80 class="img-fluid rounded mx-auto d-block" width="15%" height="20%">
 
-        <br><h2 class="center">Detalle de Huevos</h2></div>
+        <!-- <br><h2 class="center">Detalle de Huevos</h2></div> -->
 
       <table class="table table-hover table-striped" *ngIf="eggs?.length>0">
           <thead>
               <tr>
                   <th>Precio</th>
-                  <th>Dias</th>
                   <!-- <th>Comprar</th> -->
                   <th>Modificar</th>
               </tr>
@@ -30,7 +29,6 @@
               <tr >
                  
                   <td>${{egg.price}}</td>
-                  <td> {{egg.amountDays}}</td>
                 <!--   <td><button class="btn btn-secondary btn-sm" 
                     (click)="comprar(egg)">
                     Comprar para granja

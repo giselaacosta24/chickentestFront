@@ -16,6 +16,10 @@ export class TransactionsComponent implements OnInit {
 
   comprastotal: Transaction[];
   ventastotal: Transaction[];
+  ventasCantidadChicken: Transaction[];
+  ventasCantidadEgg: Transaction[];
+  comprasCantidadChicken: Transaction[];
+  comprasCantidadEgg: Transaction[];
 
   constructor(private api:TransactionService,private route:ActivatedRoute) { 
 
@@ -34,6 +38,22 @@ export class TransactionsComponent implements OnInit {
 
     this.api.totalVentas().subscribe(ventastotal=>{
       this.ventastotal=ventastotal;   
+
+    }); 
+    this.api.totalCantidad("Venta","Chicken").subscribe(ventasCantidadChicken=>{
+      this.ventasCantidadChicken=ventasCantidadChicken;   
+
+    }); 
+    this.api.totalCantidad("Compra","Chicken").subscribe(comprasCantidadChicken=>{
+      this.comprasCantidadChicken=comprasCantidadChicken;   
+
+    }); 
+    this.api.totalCantidad("Venta","Egg").subscribe(ventasCantidadEgg=>{
+      this.ventasCantidadEgg=ventasCantidadEgg;   
+
+    }); 
+    this.api.totalCantidad("Compra","Egg").subscribe(comprasCantidadEgg=>{
+      this.comprasCantidadEgg=comprasCantidadEgg;   
 
     }); 
   }
