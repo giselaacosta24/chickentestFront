@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Chicken } from 'src/app/models/Chicken';
 import { Farm } from 'src/app/models/Farm';
 import { FarmService } from 'src/app/services/farm.service';
+import { NotificationService } from 'src/app/services/notification.service';
 
 @Component({
   selector: 'app-principal',
@@ -13,10 +14,18 @@ export class PrincipalComponent implements OnInit {
 
 
 
+  constructor(private api:NotificationService,private route:ActivatedRoute,
+ ) { 
 
-  constructor() { }
+  }
 
   ngOnInit(): void {
+  }
+
+
+  exportar()
+  {
+    this.api.exportarPDF();
   }
 
 }
