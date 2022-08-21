@@ -31,42 +31,16 @@ export class FarmsComponent implements OnInit {
     this.api.listar().subscribe(farms=>{
       this.farms=farms;
     }
-      );
+  );
  
   }
 
 
   
 
-  ocultarDetalles()
-  {
-    location.reload();
 
-
-  }
-
-
-  mostrarPollosyHuevos(id:number)
-     {
-      this.apichickens.listarPollosGranja(id).subscribe(c => {
-        this.chickens = c; });
-        this.apiEggs.listarHuevosGranja(id).subscribe(e => {
-          this.eggs = e;  });
     
 
-     }
-    
-comprar(farm:Farm)
-{
-
-  console.log(farm);
-}
 
 
-   
-      mostrarDetalles(farm:Farm)
-      {
-        console.info("mostrar detalles",farm);
-        this.farmSeleccionado.emit(farm);
-      }
 }

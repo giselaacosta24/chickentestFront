@@ -3,52 +3,73 @@
     <div class="card-body">
   
        <div> 
-  
-      <table class="table table-hover table-striped" >
-          <thead> 
-              <tr> 
-                <th>Cantidad Pollos Comprados</th>
-                  <th>Cantidad Pollos Vendidos</th>
-
-                  <th>Cantidad Huevos Comprados</th>
-                  <th>Cantidad Huevos Vendidos</th>
-                 
-                
-
-
-             </tr>
-          </thead>
-          <tbody >
-              <tr >
-                  <td>{{comprasCantidadChicken}}</td>
-                 <td>{{ventasCantidadChicken}}</td> 
-                 <td>{{comprasCantidadEgg}}</td>
-                 <td>{{ventasCantidadEgg}}</td>
-                            
-               
-              </tr>
-          </tbody>
-      </table> 
-
-    </div>
-    <div *ngIf="ventas?.length>0 && compras?.length>0"> 
-  
-        <table class="table table-hover table-striped" >
-            <thead> 
+        <div class="table-responsive">
+            <table class="table table-striped table-sm">
+              <thead>
                 <tr>
-                    <th>Compras Total</th>
-                  <th>Ventas Total</th>
-               </tr>
-            </thead>
-            <tbody >
-                <tr >
-                      <td>${{comprastotal}}</td>
-                   <td>${{ventastotal}}</td>
-        
+                  <th scope="col">Ventas</th>
+                  <th scope="col">#Cantidad</th>
+              
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pollos</td>
+                  <td>{{ventasCantidadChicken}}</td>
+                </tr>
+                <tr>
+                  <td>Huevos</td>
+                  <td>{{ventasCantidadEgg}}</td>
+                </tr>
+           
+              
+              </tbody>
+              <thead>
+                <tr>
+                  <th scope="col">Compras</th>
+                  <th scope="col">#Cantidad</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Pollos</td>
+                  <td>{{comprasCantidadChicken}}</td>
+
+                </tr>
+                <tr>
+                    <td>Huevos</td>
+                    <td>{{comprasCantidadEgg}}</td>
+                </tr>
+              </tbody>
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">$Total</th>
+
+                </tr>
+              </thead>
+              <tbody>
+
+              <tr>
+                <td>Total Compras</td>
+                <td>{{comprastotal}}</td>
+
+              </tr>
+              <tr>
+                  <td>Total Ventas</td>
+                  <td>{{ventastotal}}</td>
+
                 </tr>
             </tbody>
-        </table> 
-  
-      </div>
+            </table>
+          
+        </div>
+
+
+    
+
+    </div>
+ 
     </div>
 </div>

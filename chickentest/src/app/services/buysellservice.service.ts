@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Chicken } from '../models/Chicken';
 import { Egg } from '../models/Egg';
 import { Farm } from '../models/Farm';
@@ -16,7 +17,18 @@ export class BuysellserviceService {
 
 
   public comprarPollo(chicken:Chicken, id:number):Observable<void>{
-    return this.http.put<void>(`${this.api}/buyChicken/${id}`,chicken);
+    return this.http.put<void>(`${this.api}/buyChicken/${id}`,chicken).pipe(
+      map((data) => {
+        return data;
+      }),
+      catchError((err, caught) => {
+        console.error(err);
+        Swal.fire('No puede realizar la compra, Supero la capacidad de la granja!', '', 'warning');
+
+        throw err;
+      }
+      )
+    );
   }
 
 
@@ -25,7 +37,18 @@ export class BuysellserviceService {
   }
 
   public comprarHuevo(egg:Egg, id:number):Observable<void>{
-    return this.http.put<void>(`${this.api}/buyEgg/${id}`,egg);
+    return this.http.put<void>(`${this.api}/buyEgg/${id}`,egg).pipe(
+      map((data) => {
+        return data;
+      }),
+      catchError((err, caught) => {
+        console.error(err);
+        Swal.fire('No puede realizar la compra, Supero la capacidad de la granja!', '', 'warning');
+
+        throw err;
+      }
+      )
+    );
   }
 
 

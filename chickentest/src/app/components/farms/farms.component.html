@@ -1,87 +1,62 @@
-<div class="alert alert-info" *ngIf="farms?.length==0">
+<!-- <div class="alert alert-info" *ngIf="farms?.length==0">
     No existe granja en el sistema.
     <button class="btn btn-primary my-2" routerLink="/farms/form">Crear</button>
 
 </div> 
 <div class="container py-3">
 
-    <main>
-<table class="table table-hover table-striped" *ngIf="farms?.length>0">
-    <thead>
-        <tr>
-            <th>Nombre</th>
-            <th>Presupuesto</th>
-
-            <th></th>
-            <th></th>
-
-        </tr>
-    </thead>
-    <tbody *ngFor="let farm of farms">
-        <tr >
-            <td>{{farm.name}}</td>
-
-            <td>{{farm.estimate}}</td>
-           
-            <td><button class="btn btn-secondary btn-sm" 
-                [routerLink]="['/farms/form',farm.id]">
-                Modificar
-            </button></td>
-        
-
-             
-             <td>  <button type="button" class="btn btn-primary btn-sm pull-left  btn-primary-spacing" (click)="mostrarPollosyHuevos(farm.id)">Mostrar stock Granja</button>
-               <button type="button" class="btn btn-primary btn-sm pull-right btn-primary-spacing" (click)="ocultarDetalles()">Ocultar</button>
-
-            </tr>
-    </tbody>
-
-</table>
-
-              <app-transactions></app-transactions>
-
-
-  
-</main>
-  </div>
-
-
-  <div class="container py-3">
-
-    <main>
-        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-
-
-        <table  *ngIf="chickens?.length>0" >
-          <thead> 
-              <tr>
-                  <th>Unidades Pollos Total</th>
-                
-             </tr>
-          </thead>
-          <tbody >
-              <tr >
-                
-                 <td>Cantidad de  Pollos ={{chickens?.length}}</td>
-      
-              </tr>
-          </tbody>
-      </table> 
-      <table  *ngIf="eggs?.length>0" >
-        <thead> 
-            <tr>
-                <th>Unidades Huevos Total</th>
-              
-           </tr>
-        </thead>
-        <tbody >
-            <tr >
-              
-               <td>Cantidad de  Huevos ={{eggs?.length}}</td>
-    
-            </tr>
-        </tbody>
-    </table> 
+ <main>
+    <section class="py-5 text-center container" *ngIf="farms?.length>0">
+        <div class="row py-lg-5">
+          <div class="col-lg-6 col-md-8 mx-auto"  *ngFor="let farm of farms">
+            <h1 class="fw-light">{{farm.name}}</h1>
+            <p class="lead text-muted">Presupuesto: ${{farm.estimate}}</p>
+            <a class="btn btn-primary my-2" (click)="mostrarPollosyHuevos(farm.id)">Stock Granja</a>
+            <a class="btn btn-secondary my-2"  (click)="ocultarDetalles()">Ocultar Stock</a>
+          </div>
         </div>
-        </main>
-    </div>
+   
+
+</section>
+</main>
+</div> 
+ -->
+
+ <div class="card bg-light mb-3">
+
+    <div class="card-body">
+      
+      <div class="alert alert-info" *ngIf="farms?.length==0">
+            No existe granja.       
+
+        </div>             
+            <!--   <button class="btn btn-primary my-2" routerLink="/farms/form">Alta de granja</button> -->
+
+       <div> <img src="../../../assets/logogranja.jpg" alt="" width=80 class="img-fluid rounded mx-auto d-block" width="15%" height="20%">
+
+
+        <table class="table table-hover table-striped" *ngIf="farms?.length>0">
+            <thead> 
+                <tr>
+                    <th>Nombre</th>
+                    <th>Presupuesto</th>
+               </tr>
+            </thead>
+            <tbody *ngFor="let farm of farms">
+                <tr >
+                   
+                    <td>{{farm.name}}</td>
+                    
+                    <td>${{farm.estimate}}</td>
+
+                    <td><button class="btn btn-secondary btn-sm" 
+                      [routerLink]="['/farms/form',farm.id]">
+                      Modificar
+                  </button></td>
+       
+                </tr>
+            </tbody>
+        </table>
+     
+       </div>
+  </div>
