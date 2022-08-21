@@ -1,0 +1,45 @@
+
+
+    <div class="card bg-light mb-3">
+  
+        <div class="card-body">
+          
+          <div class="alert alert-info" *ngIf="parametros?.length==0">
+  
+            </div>                   <button class="btn btn-primary my-2" routerLink="/parametros/form">Agregar Parametro</button>
+   
+           <div> 
+  
+  
+            <table class="table table-hover table-striped" *ngIf="parametros?.length>0">
+                <thead> 
+                    <tr>
+                        <th>Clave</th>
+                        <th>Valor</th>
+                        <th>Modificar</th>
+                        <th>Eliminar</th>
+
+                   </tr>
+                </thead>
+                <tbody *ngFor="let parametro of parametros">
+                    <tr >
+                       
+                        <td>{{parametro.clave}}</td>
+                        
+                        <td>{{parametro.valor}}</td>
+                     <td><button class="btn btn-secondary btn-sm" 
+                        [routerLink]="['/parametros/form',parametro.id]">
+                        Modificar
+                    </button></td>
+                        <td><button class="btn btn-secondary btn-sm" 
+                            (click)="eliminar(parametro)">
+                          Eliminar
+                      </button></td>
+                     
+           
+                    </tr>
+                </tbody>
+            </table>
+         
+           </div>
+      </div>

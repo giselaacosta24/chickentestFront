@@ -18,6 +18,8 @@ import { ComprasComponent } from './components/compras/compras.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { AdministradorComponent } from './components/administrador/administrador.component';
+import { ParametrosComponent } from './components/parametros/parametros.component';
+import { ParametrosFormComponent } from './components/parametros-form/parametros-form.component';
 
 
 @NgModule({
@@ -35,6 +37,8 @@ import { AdministradorComponent } from './components/administrador/administrador
     VentasComponent,
     TransactionsComponent,
     AdministradorComponent,
+    ParametrosComponent,
+    ParametrosFormComponent,
   ],
   imports: [
     BrowserModule,

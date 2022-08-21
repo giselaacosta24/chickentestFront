@@ -32,7 +32,7 @@ export class EggFormComponent implements OnInit {
         console.log(egg);
         Swal.fire('Compra realizada', 'success');
 
-        this.router.navigate(['/eggs'])})
+        this.router.navigate(['/administrador'])})
 }
 
 public editar(): void {
@@ -41,6 +41,6 @@ public editar(): void {
     console.log(egg);
     Swal.fire('Se modifico con éxito', 'success');
 
-    this.router.navigate(['/eggs'])})
+    this.router.navigate(['/administrador'])})
 }
 }

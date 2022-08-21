@@ -1,0 +1,36 @@
+<div class="card bg-light mb-3">
+    <div class="card-header">Nuevo Parametro</div>
+    <div class="card-body">
+        <button class="btn btn-secondary my-2" routerLink="/administrador">volver</button>
+
+        <form>
+            <div class="form-group">
+                <label for="clave">Clave</label>
+      
+                      <input type="text" name="clave" class="form-control" id="clave" 
+                [(ngModel)]="parametro.clave">
+            
+                
+            </div>
+          
+                        
+            <div class="form-group">
+                <label for="valor">Valor</label>
+      
+                      <input type="number" name="valor" class="form-control" id="valor" 
+                [(ngModel)]="parametro.valor">
+            
+                
+            </div>
+
+      
+
+          
+            <div class="form-group">
+                <button type="button" class="btn btn-primary" 
+                  (click)="parametro.id? editar(): crear()"> {{ parametro.id? 'Modificar': 'Agregar' }}
+                  </button> 
+              </div>
+        </form>
+    </div>
+</div>

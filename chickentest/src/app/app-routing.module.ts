@@ -11,6 +11,7 @@ import { ComprasComponent } from './components/compras/compras.component';
 import { VentasComponent } from './components/ventas/ventas.component';
 import { TransactionsComponent } from './components/transactions/transactions.component';
 import { AdministradorComponent } from './components/administrador/administrador.component';
+import { ParametrosFormComponent } from './components/parametros-form/parametros-form.component';
 
 
 const routes: Routes = [
@@ -27,7 +28,9 @@ const routes: Routes = [
   {path: 'compras', component: ComprasComponent},
   {path: 'ventas', component: VentasComponent},
   {path: 'transactions', component: TransactionsComponent},
-  {path: 'administrador', component: AdministradorComponent}
+  {path: 'administrador', component: AdministradorComponent},
+  {path: 'parametros/form', component: ParametrosFormComponent},
+  {path: 'parametros/form/:id', component: ParametrosFormComponent},
 
 
 
