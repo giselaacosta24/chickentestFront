@@ -74,7 +74,7 @@ export class ComprasComponent implements OnInit {
            try{this.api.modificarPresupuesto("compra",this.farms[0].id,egg.price,this.farms[0]).subscribe(farm => {
               this.buysellservice.comprarHuevo(egg,id).subscribe(()=>{
                 this.eggs=this.eggs.filter(e => e !== egg)});
-                //location.reload();
+                //
             }) ;
               
               } catch{   
@@ -82,8 +82,11 @@ export class ComprasComponent implements OnInit {
 
 
               }
-  
 
+      }
+
+      actualizar(){
+        location.reload();
       }
       
 }

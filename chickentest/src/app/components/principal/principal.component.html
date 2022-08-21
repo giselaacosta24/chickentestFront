@@ -8,7 +8,7 @@
         <div>
             <h2  class="center">Informacion de la granja</h2>
          <img src="../../../assets/pollos.jpg" alt="" width=80 class="img-fluid rounded mx-auto d-block" width="15%" height="20%">
-         <a href="http://localhost:8080/api/v1/notification/pdf">Export to PDF</a>
+         <a href="http://localhost:8080/api/v1/notification/pdf">Descargar Movimientos en PDF</a>
       
          <div class="alert alert-info" *ngIf="farms?.length==0">
             No existe granja en el sistema.
@@ -23,14 +23,14 @@
                   <div class="col-lg-6 col-md-8 mx-auto"  *ngFor="let farm of farms">
                     <h1 class="fw-light">{{farm.name}}</h1>
                     <p class="lead text-muted">Presupuesto: ${{farm.estimate}}</p>
-                    <a class="btn btn-primary my-2" (click)="mostrarPollosyHuevos(farm.id)">Stock Granja</a>
-                    <a class="btn btn-secondary my-2"  (click)="ocultarDetalles()">Ocultar Stock</a>
+                    <a class="btn btn-primary my-2" (click)="mostrarPollosyHuevos(farm.id)">Actualizar Stock Granja</a>
                   </div>
                 </div>
            
       
-          
-           <table  class="table table-striped table-sm" *ngIf="chickens?.length>0"  >
+                
+              
+           <table  class="table table-striped table-sm"   >
                 <thead> 
                     <tr>
                       <th>Unidades Pollos Total</th>
@@ -42,7 +42,7 @@
                      </tr>
                 </tbody>
             </table> 
-            <table  class="table table-striped table-sm" *ngIf="eggs?.length>0" >
+            <table  class="table table-striped table-sm" >
               <thead> 
                   <tr>
                     <th>Unidades Huevos Total</th>

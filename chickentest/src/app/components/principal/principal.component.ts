@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Chicken } from 'src/app/models/Chicken';
@@ -23,11 +24,14 @@ export class PrincipalComponent implements OnInit {
   farms:Farm[] = [];;
   chickens: Chicken[] = [];
   eggs: Egg[] = [];
-  @Output() farmSeleccionado: EventEmitter<any>= new EventEmitter<any>();
+
+  cantpollos:number;
+  canthuevos:number;
+
 
   constructor(private api:FarmService,private route:ActivatedRoute,
     private apichickens:ChickenService,private buysellservice:BuysellserviceService,
-    private apiEggs:EggService) { 
+    private apiEggs:EggService, private apiNotifications:NotificationService) { 
 
   }
 
@@ -49,24 +53,16 @@ export class PrincipalComponent implements OnInit {
   mostrarPollosyHuevos(id:number)
      {
       this.apichickens.listarPollosGranja(id).subscribe(c => {
-        this.chickens = c; });
+         this.chickens = c;});
         this.apiEggs.listarHuevosGranja(id).subscribe(e => {
-          this.eggs = e;  });
-          console.log(this.chickens.length=0);
       
-          if(this.chickens.length=0)
-       {
-        Swal.fire('No posee stock!', '', 'warning')  
+          this.eggs = e;});
+        }  
 
-       }
-       else{
-        console.log("mostrar lista");
-       }
-
-     }
-/*   exportar()
+    
+   exportar()
   {
-    this.api.exportarPDF();
-  } */
+    this.apiNotifications.exportarPDF();
+  } 
+ }
 
-}
