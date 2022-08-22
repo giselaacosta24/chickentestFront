@@ -59,7 +59,7 @@ export class ComprasComponent implements OnInit {
           this.chickens=this.chickens.filter(c => c !== chicken)});
          }catch(err)  {
             console.error(err);
-            Swal.fire('No puede realizar la compra, Supero la capacidad de la granja!', '', 'warning');
+            Swal.fire('No puede realizar la compra', '', 'warning');
     
             throw err;
           }
@@ -71,10 +71,17 @@ export class ComprasComponent implements OnInit {
   
             const id=this.farms[0].id;
     
+            try{
          
               this.buysellservice.comprarHuevo(egg,id).subscribe(()=>{
                 this.eggs=this.eggs.filter(e => e !== egg)});
-              
+              }catch(err)  {
+                console.error(err);
+                Swal.fire('No puede realizar la compra', '', 'warning');
+        
+                throw err;
+              }
+             
             
               
             

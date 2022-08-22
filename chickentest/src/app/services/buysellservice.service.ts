@@ -23,7 +23,7 @@ export class BuysellserviceService {
       }),
       catchError((err, caught) => {
         console.error(err);
-        Swal.fire('No puede realizar la compra, Supero la capacidad de la granja!', '', 'warning');
+        Swal.fire('No puede realizar la compra!', '', 'warning');
 
         throw err;
       }
@@ -43,7 +43,7 @@ export class BuysellserviceService {
       }),
       catchError((err, caught) => {
         console.error(err);
-        Swal.fire('No puede realizar la compra, Supero la capacidad de la granja!', '', 'warning');
+        Swal.fire('No puede realizar la compra!', '', 'warning');
 
         throw err;
       }
