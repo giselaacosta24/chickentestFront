@@ -17,7 +17,7 @@ export class BuysellserviceService {
 
 
   public comprarPollo(chicken:Chicken, id:number):Observable<void>{
-    return this.http.put<void>(`${this.api}/buyChicken/${id}`,chicken).pipe(
+    return this.http.put<void>(`${this.api}/buyChicken/${id}`,chicken) .pipe(
       map((data) => {
         return data;
       }),
@@ -28,7 +28,7 @@ export class BuysellserviceService {
         throw err;
       }
       )
-    );
+    ); 
   }
 
 

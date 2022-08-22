@@ -54,34 +54,30 @@ export class ComprasComponent implements OnInit {
   
       const id=this.farms[0].id;
     
-      try{this.api.modificarPresupuesto("compra",this.farms[0].id,chicken.price,this.farms[0]).subscribe(farm => {
+      try{
          this.buysellservice.comprarPollo(chicken,id).subscribe(()=>{
           this.chickens=this.chickens.filter(c => c !== chicken)});
-
-       }) ;
+         }catch(err)  {
+            console.error(err);
+            Swal.fire('No puede realizar la compra, Supero la capacidad de la granja!', '', 'warning');
+    
+            throw err;
+          }
          
-      } catch{   
-        console.error("error");
-      
-
-       } 
+    
       }
     comprarHuevos(egg:Egg)
     {
   
             const id=this.farms[0].id;
     
-           try{this.api.modificarPresupuesto("compra",this.farms[0].id,egg.price,this.farms[0]).subscribe(farm => {
+         
               this.buysellservice.comprarHuevo(egg,id).subscribe(()=>{
                 this.eggs=this.eggs.filter(e => e !== egg)});
-                //
-            }) ;
               
-              } catch{   
-               console.error("error");
-
-
-              }
+            
+              
+            
 
       }
 
