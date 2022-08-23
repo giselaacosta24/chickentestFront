@@ -9,29 +9,27 @@
            
           
                     <div class="pricing-header p-3 pb-md-6 mx-auto text-center" *ngFor="let farm of farms">
-                       <!--  <h2 class="display-6 text-center mb-4">Presupuesto</h2>
-                        <h2 class="display-6 text-center mb-4">Actual</h2> -->
+                    <h2 class="display-6 text-center mb-4">Presupuesto</h2>
+                        <h2 class="display-6 text-center mb-4">Actual</h2> 
         
-                        <!-- <h2 class="display-6 text-center mb-4" >
-                        ${{farm.estimate}} </h2> -->
+                        <h2 class="display-6 text-center mb-4" >
+                        ${{farm.estimate}} </h2>
                     
                         <br>
-                        <button class="btn btn-secondary btn-sm" 
-                        (click)="iniciarVenta(farm.id)">
-                       IniciarVenta
-                    </button> 
+                    
                     </div>
                   </header>
               <div class="col">
                  
                   <div class="card-body">
-                    <!-- <div class="alert alert-info" *ngIf="chickens?.length==0">
-                      No hay pollos para venta.
-                      Realizar Compra       
-                  </div>  -->
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                      <h4 class="my-0 fw-normal">Pollos</h4>
+                    </div>
+                    <div class="alert alert-info" *ngIf="chickens?.length==0">
+                      No hay pollos para venta.       
+                  </div> 
                     <div *ngIf="chickens?.length>0">
                   <div class="card-header py-3 text-bg-primary border-primary">
-                    <h4 class="my-0 fw-normal">Pollos</h4>
                   </div>
                     <table class="table table-hover table-striped" >
                         <thead> 
@@ -64,13 +62,14 @@
               <div class="col">
                  
                   <div class="card-body">
-                    <!-- <div class="alert alert-info" *ngIf="eggs?.length==0">
-                      No hay huevos para venta.
-                      Realizar Compra       
-                  </div>   -->
+                    <div class="card-header py-3 text-bg-primary border-primary">
+                      <h4 class="my-0 fw-normal">Huevos</h4>
+                    </div>
+                    <div class="alert alert-info" *ngIf="eggs?.length==0">
+                      No hay huevos para venta.       
+                  </div> 
                     <div *ngIf="eggs?.length>0"> 
                       <div class="card-header py-3 text-bg-primary border-primary">
-                    <h4 class="my-0 fw-normal">Huevos</h4>
                   </div>
                     <table class="table table-hover table-striped" >
                         <thead> 

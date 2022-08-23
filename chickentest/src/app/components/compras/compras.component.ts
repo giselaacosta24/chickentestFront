@@ -56,7 +56,9 @@ export class ComprasComponent implements OnInit {
     
       try{
          this.buysellservice.comprarPollo(chicken,id).subscribe(()=>{
-          this.chickens=this.chickens.filter(c => c !== chicken)});
+          this.chickens=this.chickens.filter(c => c !== chicken);
+           location.reload()});
+
          }catch(err)  {
             console.error(err);
             Swal.fire('No puede realizar la compra', '', 'warning');
@@ -74,7 +76,10 @@ export class ComprasComponent implements OnInit {
             try{
          
               this.buysellservice.comprarHuevo(egg,id).subscribe(()=>{
-                this.eggs=this.eggs.filter(e => e !== egg)});
+                this.eggs=this.eggs.filter(e => e !== egg)
+                location.reload()});
+
+   
               }catch(err)  {
                 console.error(err);
                 Swal.fire('No puede realizar la compra', '', 'warning');
@@ -88,8 +93,5 @@ export class ComprasComponent implements OnInit {
 
       }
 
-      actualizar(){
-        location.reload();
-      }
       
 }
