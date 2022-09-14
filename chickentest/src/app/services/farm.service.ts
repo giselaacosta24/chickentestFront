@@ -17,9 +17,21 @@ export class FarmService {
   
 
   public listar():Observable<Farm[]>{
-    return this.http.get<Farm[]>(this.api);
-
-  }
+    return this.http.get<Farm[]>(this.api).pipe(
+        map((data) => {
+         
+          return data;
+        }),
+        catchError((err, caught) => {
+       Swal.fire('No existe Farm en BD', '', 'warning');
+  
+          throw err;
+        }
+        )
+      );
+  
+    }
+  
 
 
   public ver(id: number): Observable<Farm> {

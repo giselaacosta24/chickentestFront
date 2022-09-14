@@ -28,11 +28,16 @@ export class FarmsComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.api.listar().subscribe(farms=>{
-      this.farms=farms;
-    }
-  );
  
+  try{
+    this.api.listar().subscribe(farms=>{
+       this.farms=farms;
+
+    })}catch(err)  {
+        console.error(err);
+
+        throw err;
+      }
   }
 
 

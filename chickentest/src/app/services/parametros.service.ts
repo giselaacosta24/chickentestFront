@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, map, Observable } from 'rxjs';
+import Swal from 'sweetalert2';
 import { Parametro } from '../models/Parametro';
 
 @Injectable({
@@ -19,7 +20,18 @@ export class ParametrosService {
   }
 
   public ver(id: number): Observable<Parametro> {
-    return this.http.get<Parametro>(`${this.api}/${id}`);
+    return this.http.get<Parametro>(`${this.api}/${id}`).pipe(
+      map((data) => {
+        //You can perform some transformation here
+        return data;
+      }),
+      catchError((err, caught) => {
+     
+        throw err;
+      }
+      )
+    );
+
   }
 
   public editar(parametro:Parametro):Observable<Parametro[]>{
@@ -32,7 +44,18 @@ export class ParametrosService {
   }
 
   public listar():Observable<Parametro[]>{
-    return this.http.get<Parametro[]>(this.api);
+    return this.http.get<Parametro[]>(this.api).pipe(
+      map((data) => {
+        //You can perform some transformation here
+        return data;
+      }),
+      catchError((err, caught) => {
+     Swal.fire('No existe Parametros en BD', '', 'warning');
+
+        throw err;
+      }
+      )
+    );
 
   }
 }

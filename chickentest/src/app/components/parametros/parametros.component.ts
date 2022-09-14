@@ -16,10 +16,16 @@ export class ParametrosComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.api.listar().subscribe(parametros=>{
-      this.parametros=parametros;
-    }
-      );
+
+      try{
+       this.api.listar().subscribe(parametros=>{
+          this.parametros=parametros;
+
+       })}catch(err)  {
+           console.error(err);
+   
+           throw err;
+         }
 }
 
 
