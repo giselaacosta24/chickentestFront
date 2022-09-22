@@ -8,7 +8,7 @@ import { Egg } from '../models/Egg';
 })
 export class EggService {
 
-  api:string = 'http://localhost:8080/api/v1/eggs'
+  api:string = 'http://localhost:8090/api/v1/eggs'
 
   constructor(private http:HttpClient) { }
   

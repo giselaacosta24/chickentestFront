@@ -10,7 +10,7 @@ import { Farm } from '../models/Farm';
   providedIn: 'root'
 })
 export class BuysellserviceService {
-  api:string = 'http://localhost:8080/api/v1/chickentest'
+  api:string = 'http://localhost:8090/api/v1/chickentest'
   protected cabeceras: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http:HttpClient) { }

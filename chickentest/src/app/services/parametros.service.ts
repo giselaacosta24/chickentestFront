@@ -10,7 +10,7 @@ import { Parametro } from '../models/Parametro';
 export class ParametrosService {
   protected cabeceras: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  api:string = 'http://localhost:8080/api/v1/parametros'
+  api:string = 'http://localhost:8090/api/v1/parametros'
 
   constructor(private http:HttpClient) { }
   

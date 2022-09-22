@@ -9,7 +9,7 @@ import { Transaction } from '../models/Transaction';
 export class TransactionService {
   protected cabeceras: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-  api:string = 'http://localhost:8080/api/v1/transactions'
+  api:string = 'http://localhost:8090/api/v1/transactions'
 
   constructor(private http:HttpClient) { }
   

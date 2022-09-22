@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 export class FarmService {
 
 
-  api:string = 'http://localhost:8080/api/v1/farms'
+  api:string = 'http://localhost:8090/api/v1/farms'
   protected cabeceras: HttpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
   constructor(private http:HttpClient) { }
